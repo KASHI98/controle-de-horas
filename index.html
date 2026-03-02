@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Horas | Clayver Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+<div class="layout">
+    <aside class="sidebar">
+        <h2>⏱ Controle</h2>
+        <nav class="menu">
+            <button onclick="showPage('dashboard')" id="btn-dashboard" class="active">Dashboard</button>
+            <button onclick="showPage('salario')" id="btn-salario">Configuração Salarial</button>
+            <button onclick="showPage('extras')" id="btn-extras">Registrar Horas</button>
+        </nav>
+        <button onclick="exportarPDF()" class="btn-pdf">📄 Gerar Relatório PDF</button>
+    </aside>
+
+    <main class="content">
+        <section id="dashboard" class="page active">
+            <h1>Dashboard</h1>
+            <div id="resumoExtras" class="stats-grid"></div>
+            <h2 style="margin-top:20px; color:var(--text-dim)">Linha do Tempo</h2>
+            <div id="timelineDashboard" class="timeline"></div>
+        </section>
+
+        <section id="salario" class="page">
+            <h1>Configuração Salarial</h1>
+            <div class="card-form">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Salário Mensal (R$)</label>
+                        <input type="number" id="valorSalario" value="2000" oninput="calcularSalario()">
+                    </div>
+                    <div class="input-group">
+                        <label>Horas Semanais</label>
+                        <input type="number" id="horasSemana" value="44" oninput="calcularSalario()">
+                    </div>
+                </div>
+                <div id="resultadoSalario" style="margin-top:25px"></div>
+            </div>
+        </section>
+
+        <section id="extras" class="page">
+            <h1>Novo Registro</h1>
+            <div class="card-form">
+                <div class="form-grid">
+                    <div class="input-group full-width">
+                        <label>Título / Projeto</label>
+                        <input type="text" id="titulo" placeholder="Ex: Automação WhatsApp SURI">
+                    </div>
+                    <div class="input-group">
+                        <label>Data</label>
+                        <input type="date" id="dataAtividade" class="input-white">
+                    </div>
+                    <div class="input-group">
+                        <label>Início</label>
+                        <input type="time" id="horaInicio">
+                    </div>
+                    <div class="input-group">
+                        <label>Término</label>
+                        <input type="time" id="horaFim">
+                    </div>
+                    <div class="input-group">
+                        <label>Tipo (Adicional)</label>
+                        <select id="tipoDia">
+                            <option value="1.5">Dia Útil (50%)</option>
+                            <option value="2.0">Feriado/Dom (100%)</option>
+                        </select>
+                    </div>
+                    <div class="input-group full-width">
+                        <label>Anotações</label>
+                        <textarea id="anotacao" placeholder="Detalhes do serviço..."></textarea>
+                    </div>
+                </div>
+                <button class="main-action" onclick="registrarExtra()">Salvar Registro</button>
+            </div>
+        </section>
+    </main>
+</div>
+
+<div id="modalDetalhes" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="fecharModal()">&times;</span>
+        <h2 id="modalTitulo">Detalhes</h2>
+        <div id="modalBody" style="margin-top:20px"></div>
+    </div>
+</div>
+
+<script src="js/storage.js"></script>
+<script src="js/calculator.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

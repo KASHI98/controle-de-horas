@@ -1,0 +1,399 @@
+/* Variáveis de Cores e Estilo */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #141414;
+    --purple: #8257e5;
+    --purple-hover: #6f48c9;
+    --red: #ff4757;
+    --text-white: #ffffff;
+    --text-dim: #a8a8b3;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset e Configurações Gerais */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background: var(--bg-dark); 
+    color: var(--text-white); 
+    overflow-x: hidden; 
+    line-height: 1.6;
+}
+
+/* Layout Principal */
+.layout { 
+    display: flex; 
+    min-height: 100vh; 
+}
+
+/* Sidebar Estilizada */
+.sidebar {
+    width: 280px;
+    background: #000;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #222;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
+}
+
+.sidebar h2 { 
+    color: var(--purple); 
+    margin-bottom: 40px; 
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.menu { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+}
+
+.menu button {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    padding: 16px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.menu button:hover, .menu button.active {
+    background: #1a1a1a;
+    color: var(--purple);
+    font-weight: bold;
+    box-shadow: inset 4px 0 0 var(--purple);
+}
+
+/* Botão PDF */
+.btn-pdf {
+    background: transparent;
+    border: 1px solid var(--red) !important;
+    color: var(--red) !important;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: auto;
+    font-weight: bold;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-pdf:hover {
+    background: var(--red);
+    color: #fff !important;
+}
+
+/* Área de Conteúdo */
+.content { 
+    flex: 1; 
+    padding: 50px; 
+    max-width: 1200px;
+}
+
+.page { 
+    display: none; 
+}
+
+.page.active { 
+    display: block; 
+    animation: fadeIn 0.4s ease-in-out; 
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    margin-bottom: 30px; 
+    color: var(--purple);
+    position: relative;
+}
+
+/* Campos de Entrada e Formulário */
+.card-form {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.full-width { 
+    grid-column: 1 / -1; 
+}
+
+label {
+    display: block;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* CORREÇÃO: Input de Data Branco */
+.input-white {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-weight: bold;
+    border: 2px solid var(--purple) !important;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--purple);
+}
+
+/* Botão Salvar "Pika" */
+.main-action {
+    width: 100%;
+    padding: 20px;
+    background: var(--purple);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(130, 87, 229, 0.3);
+}
+
+.main-action:hover {
+    background: var(--purple-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(130, 87, 229, 0.5);
+}
+
+/* Dashboard e Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.card-dash {
+    background: var(--bg-card);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid var(--purple);
+    box-shadow: var(--shadow);
+}
+
+.card-dash h2 { font-size: 2.2rem; margin-top: 5px; }
+.card-dash p { font-weight: bold; }
+
+/* Timeline Estilo Calendário */
+.timeline-item {
+    background: var(--bg-card);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border: 1px solid #222;
+    transition: 0.3s;
+}
+
+.timeline-item:hover {
+    border-color: var(--purple);
+}
+
+.date-badge {
+    background: var(--purple);
+    min-width: 70px;
+    height: 70px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 15px rgba(130, 87, 229, 0.4);
+}
+
+.date-badge .day { font-size: 1.6rem; font-weight: bold; }
+.date-badge .month { font-size: 0.8rem; text-transform: uppercase; }
+
+.item-info { flex: 1; }
+.item-info h3 { color: var(--purple); margin-bottom: 5px; }
+
+.actions { display: flex; gap: 10px; }
+.btn-view { background: var(--purple); color: #fff; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+.btn-del { background: transparent; border: 1px solid var(--red) !important; color: var(--red); padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+
+/* Modal Estilizado */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    background: #1a1a1a;
+    margin: 10% auto;
+    padding: 35px;
+    width: 90%;
+    max-width: 550px;
+    border-radius: 20px;
+    border: 1px solid var(--purple);
+    box-shadow: 0 0 40px rgba(130, 87, 229, 0.2);
+    position: relative;
+}
+
+.close-btn { 
+    position: absolute; 
+    right: 25px; 
+    top: 20px; 
+    font-size: 2rem; 
+    cursor: pointer; 
+    color: var(--text-dim);
+}
+
+/* --- RESPONSIVIDADE MOBILE (MELHORADA) --- */
+@media (max-width: 768px) {
+    .layout { 
+        flex-direction: column; 
+    }
+
+    /* Transforma a Sidebar em Barra Inferior Fixa */
+    .sidebar {
+        width: 100%;
+        height: 75px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        flex-direction: row;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid #222;
+        background: #000;
+        justify-content: space-around;
+        z-index: 1000;
+        box-shadow: 0 -5px 20px rgba(0,0,0,0.8);
+    }
+
+    .sidebar h2 { 
+        display: none; /* Esconde o título no mobile */
+    }
+
+    .menu { 
+        flex-direction: row; 
+        width: 100%; 
+        height: 100%;
+        gap: 0;
+    }
+
+    .menu button {
+        flex: 1;
+        border-radius: 0;
+        text-align: center;
+        font-size: 0.65rem;
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        transition: 0.2s;
+    }
+
+    /* Estilo para ícones/emojis no menu mobile */
+    .menu button::before {
+        font-size: 1.2rem;
+        margin-bottom: 2px;
+    }
+    #btn-dashboard::before { content: "🏠"; }
+    #btn-salario::before { content: "💰"; }
+    #btn-extras::before { content: "➕"; }
+
+    .menu button.active {
+        background: #111;
+        box-shadow: inset 0 4px 0 var(--purple); /* Destaque no topo do botão */
+    }
+
+    .sidebar-footer { 
+        display: flex; 
+        align-items: center; 
+        padding-right: 10px;
+    }
+
+    .btn-pdf { 
+        margin: 0; 
+        padding: 8px 12px; 
+        font-size: 0.7rem; 
+        white-space: nowrap;
+        border-radius: 8px;
+    }
+
+    /* Garante que o conteúdo não fique embaixo da barra inferior */
+    .content { 
+        padding: 20px 15px 100px 15px !important; 
+    }
+
+    h1 { font-size: 1.8rem; text-align: center; }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr; /* Dois cards por linha no mobile */
+        gap: 12px;
+    }
+
+    .card-dash h2 { font-size: 1.4rem; }
+
+    /* Timeline Mobile */
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    .date-badge {
+        width: 100%;
+        height: 40px;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 20px;
+    }
+}
