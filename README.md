@@ -15,3 +15,5 @@ Sistema moderno e responsivo para controle de horas extras e cálculo de lucro e
 - JavaScript (Lógica e Cálculos)
 - LocalStorage (Persistência de Dados)
 - html2pdf.js (Exportação de relatórios)
+
+https://kashi98.github.io/controle-de-horas/
